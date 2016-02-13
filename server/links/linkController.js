@@ -73,6 +73,7 @@ module.exports = {
   },
 
   navToLink: function (req, res, next) {
+    console.log('navToLink', req.navLink);
     var link = req.navLink;
     link.visits++;
     link.save(function (err, savedLink) {

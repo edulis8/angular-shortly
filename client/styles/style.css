@@ -31,7 +31,7 @@ h1 {
   float: left;
 }
 
-.navigation li a {
+.navigation a {
   width: 100px;
   height: 20px;
   line-height: 20px;
@@ -40,17 +40,21 @@ h1 {
   text-align: center;
 }
 
-.navigation li a:hover {
+.navigation a:hover {
   background-color: #ddd;
 }
 
-.navigation li a.selected {
+.navigation a.selected {
   background-color: #ccc;
 }
 
 #container {
   clear: both;
   margin-top: 10px;
+}
+
+.logout {
+  float:right;
 }
 
 .link {
@@ -113,9 +117,10 @@ input[type=url]:focus {
   outline: none;
 }
 
-
 .error {
-  border: red solid 4px;
+  font-size: 10px;
+  color: red;
+  /*border: red solid 1px;*/
   padding: 10px;
   margin: 0 10px;
 }

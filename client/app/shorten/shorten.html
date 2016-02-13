@@ -1,9 +1,45 @@
 <div id='container'>
 <!-- form where user can input a link -->
-<h1>Shorten</h1>
-<form name="shortener" ng-submit="addLink()">
-  <input type='text' ng-model='link.url' placeholder="Type in a link you want to shorten">
+<h2>Shorten</h2>
+
+<form name="shortener" ng-submit="addLink(link)">
+
+  <input type='url' ng-model='link.url' placeholder="Type in a link you want to shorten">
+
   <button>shorten</button>
+
 </form>
+
+
+  <!-- <div>{{ shortenedLink | json }}</div> -->
+
+<div class="message">
+  <div class="link" style="display: block;">
+    <div ng-if="shortenedLink" >
+    <img src="assets/redirect_icon.png">
+    <div class="info">
+      <div class="visits"><span class="count">{{shortenedLink.visits}}</span></div>
+      <div class="title">{{shortenedLink.title}}</div>
+      <div class="original">{{shortenedLink.url}}</div>
+      <a ng-href='{{shortenedLink.base_url + "/api/links/" + shortenedLink.code}}'>{{shortenedLink.base_url + "/api/links/" + shortenedLink.code}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
 </div>
 
+
+<!-- { insert: "links", documents: 
+[ { 
+code: "7720b", 
+url: "https://www.sublimetext.com/docs/3/indentation.html", 
+visits: 0, 
+base_url: "http://localhost:3000", 
+title: "Indentation Settings - Sublime Text 3 Documentation", 
+_id: ObjectId('56bf779501833e5d6410edc1'), 
+__v: 0 
+} ],  -->
+
+<!-- ordered: false, writeConcern: { w: 1 } } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:40 locks:{ Global: { acquireCount: { r: 2, w: 2 } }, Database: { acquireCount: { w: 1, W: 1 } }, Collection: { acquireCount: { w: 1, W: 1 } } } protocol:op_query 328ms -->

@@ -17,8 +17,9 @@ angular.module('shortly.auth', [])
       });
   };
 
-  $scope.signup = function () {
-    Auth.signup($scope.user)
+  $scope.signup = function (isValid) {
+    if (isValid){
+      Auth.signup($scope.user)
       .then(function (token) {
         $window.localStorage.setItem('com.shortly', token);
         $location.path('/links');
@@ -26,5 +27,7 @@ angular.module('shortly.auth', [])
       .catch(function (error) {
         console.error(error);
       });
+    }
+    
   };
 });

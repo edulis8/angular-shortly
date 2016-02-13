@@ -18,7 +18,7 @@ angular.module('shortly.services', [])
 .factory('Shorten', function($http){
 
   var postLink = function( link ){
-    console.log('link', link);
+    console.log('post link', link);
     //link = JSON.stringify(link);
     return $http({
       method: 'POST',

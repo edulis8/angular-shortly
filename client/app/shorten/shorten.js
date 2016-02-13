@@ -7,10 +7,11 @@ angular.module('shortly.shorten', [])
   $scope.link = {};
 
   $scope.addLink = function(link){
-    console.log('link', link)
+    console.log('link', link);
     Shorten.postLink(link)
     .then(function(data){
       console.log('addLink data returned', data);
+      $scope.shortenedLink = data;
     });
   };  
 

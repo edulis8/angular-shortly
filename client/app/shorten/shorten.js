@@ -1,7 +1,19 @@
 angular.module('shortly.shorten', [])
 
-.controller('ShortenController', function ($scope, $location, Links) {
-  // Your code here
+.controller('ShortenController', function ($scope, $location, Links, Shorten) {
+
+  angular.extend($scope, Shorten);
+
+  $scope.link = {};
+
+  $scope.addLink = function(link){
+    console.log('link', link)
+    Shorten.postLink(link)
+    .then(function(data){
+      console.log('addLink data returned', data);
+    });
+  };  
+
 });
 
 

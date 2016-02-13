@@ -1,6 +1,9 @@
 <div id='container'>
-<!-- Your code here -->
-
+<!-- form where user can input a link -->
+<h1>Shorten</h1>
+<form name="shortener" ng-submit="addLink()">
+  <input type='text' ng-model='link.url' placeholder="Type in a link you want to shorten">
+  <button>shorten</button>
+</form>
 </div>
-
 

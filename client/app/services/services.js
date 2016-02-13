@@ -2,7 +2,18 @@ angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
   // Your code here
+  var getLinkData = function(){
+    return $http({
+      method: 'GET',
+      url: '/api/links'
+    })
+    .then(function(resp){
+      console.log('RESP.DATA in Links factory: ', resp.data)
+      return resp.data;
+    });
+  };
 
+  return {getLinkData: getLinkData};
   
 })
 .factory('Auth', function ($http, $location, $window) {

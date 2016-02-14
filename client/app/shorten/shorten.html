@@ -4,14 +4,13 @@
 
 <form name="shortener" ng-submit="addLink(link)">
 
-  <input type='url' ng-model='link.url' placeholder="Type in a link you want to shorten">
+  <div class="error" ng-if='shortener.shortenInput.$invalid'>Please enter a valid URL</div>
 
-  <button>shorten</button>
+  <input type='url' name='shortenInput' ng-model='link.url' placeholder="Type in a link you want to shorten">
+
+  <button ng-disabled = 'shortener.$invalid'>signup</button><span ng-if='loading'><img src="assets/spiffygif_46x46.gif"></span>
 
 </form>
-
-
-  <!-- <div>{{ shortenedLink | json }}</div> -->
 
 <div class="message">
   <div class="link" style="display: block;">
@@ -30,16 +29,3 @@
 
 </div>
 
-
-<!-- { insert: "links", documents: 
-[ { 
-code: "7720b", 
-url: "https://www.sublimetext.com/docs/3/indentation.html", 
-visits: 0, 
-base_url: "http://localhost:3000", 
-title: "Indentation Settings - Sublime Text 3 Documentation", 
-_id: ObjectId('56bf779501833e5d6410edc1'), 
-__v: 0 
-} ],  -->
-
-<!-- ordered: false, writeConcern: { w: 1 } } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:40 locks:{ Global: { acquireCount: { r: 2, w: 2 } }, Database: { acquireCount: { w: 1, W: 1 } }, Collection: { acquireCount: { w: 1, W: 1 } } } protocol:op_query 328ms -->

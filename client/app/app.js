@@ -18,19 +18,25 @@ angular.module('shortly', [
     // Your code here
      //links route, template, controller
     .when('/links', {
+      authenticate: true,
       templateUrl: 'app/links/links.html',
       controller: 'LinksController'
     })
-    //shorten route, template, controller
     .when('/shorten', {
+      authenticate: true,
       templateUrl: 'app/shorten/shorten.html',
       controller: 'ShortenController'
     })
+    .otherwise({
+      authenticate: true,
+      redirectTo: '/links'
+    });
    
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
     $httpProvider.interceptors.push('AttachTokens');
 })
+
 .factory('AttachTokens', function ($window) {
   // this is an $httpInterceptor
   // its job is to stop all out going request
@@ -48,6 +54,7 @@ angular.module('shortly', [
   };
   return attach;
 })
+
 .run(function ($rootScope, $location, Auth) {
   // here inside the run phase of angular, our services and controllers
   // have just been registered and our app is ready

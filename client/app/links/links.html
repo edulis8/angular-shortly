@@ -2,8 +2,11 @@
 <h2>Links</h2>
 <!-- display links -->
   <!-- on page load call getLinks() -->
+  
+  <input type="text" placeholder="search for a link" ng-model='search'/>
+
   <div ng-if="data.links" >
-    <div ng-repeat="link in data.links">
+    <div ng-repeat="link in data.links | orderBy: '-visits' | filter:search">
       
       <div class="message">
         <div class="link" style="display: block;">

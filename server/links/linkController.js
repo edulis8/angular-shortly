@@ -12,10 +12,12 @@ module.exports = {
           req.navLink = link;
           next();
         } else {
+          res.redirect('/#/links');
           next(new Error('Link not added yet'));
         }
       })
       .fail(function (error) {
+        res.redirect('/#/links');
         next(error);
       });
   },
@@ -34,8 +36,6 @@ module.exports = {
 
   newLink: function (req, res, next) {
     var url = req.body.url;
-    console.log(req.body);
-    console.log('in LinkController', url)
     if (!util.isValidUrl(url)) {
       return next(new Error('Not a valid url'));
     }
@@ -78,6 +78,7 @@ module.exports = {
     link.visits++;
     link.save(function (err, savedLink) {
       if (err) {
+        res.redirect('/#/links');
         next(err);
       } else {
         res.redirect(savedLink.url);

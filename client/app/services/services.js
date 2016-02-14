@@ -68,8 +68,9 @@ angular.module('shortly.services', [])
   var isAuth = function () {
     return !!$window.localStorage.getItem('com.shortly');
   };
-
+  // get this into auth.js $scope and call it when someone clicks logout
   var signout = function () {
+    console.log('inside signout in factory', $window.localStorage.getItem('com.shortly'));
     $window.localStorage.removeItem('com.shortly');
     $location.path('/signin');
   };

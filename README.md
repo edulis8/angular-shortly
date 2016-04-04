@@ -1,7 +1,7 @@
 # Angular Shortly
 A full-stack URL-shortener app written in Angular, Node, Express and Mongo.
 
-This was the final sprint in the three-sprint Shortly series :) I completed it alongside a pair when I was a student at [Hack Reactor Remote](http://www.hackreactor.com/remote-beta/).
+This was the final sprint in the three-sprint Shortly series. I completed it alongside a pair when I was a student at [Hack Reactor Remote](http://www.hackreactor.com/remote-beta/).
 
 Topics covered in this sprint:
 - Controllers & $scope
